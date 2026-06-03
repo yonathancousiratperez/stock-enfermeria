@@ -49,7 +49,6 @@
   ::-webkit-scrollbar-thumb { background: #cfd6dd; border-radius: 8px; border: 3px solid var(--bg); }
   ::-webkit-scrollbar-thumb:hover { background: #b6bfc8; }
 
-  /* ═══════ LOGIN ═══════ */
   #login-screen {
     display: flex;
     align-items: center;
@@ -73,10 +72,7 @@
     animation: fadeIn 0.45s cubic-bezier(.2,.7,.3,1);
   }
 
-  .login-header {
-    padding: 34px 34px 22px;
-    border-bottom: 1px solid var(--border);
-  }
+  .login-header { padding: 34px 34px 22px; border-bottom: 1px solid var(--border); }
 
   .login-badge {
     display: inline-flex;
@@ -91,11 +87,7 @@
     letter-spacing: .02em;
     margin-bottom: 16px;
   }
-  .login-badge::before {
-    content: '';
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--ok);
-  }
+  .login-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
 
   .login-header h1 {
     font-family: var(--display);
@@ -105,22 +97,9 @@
     color: var(--text);
     letter-spacing: -0.01em;
   }
-
-  .login-header .sub {
-    font-size: 14px;
-    color: var(--text-soft);
-    margin-top: 8px;
-  }
-
+  .login-header .sub { font-size: 14px; color: var(--text-soft); margin-top: 8px; }
   .login-body { padding: 26px 34px 32px; }
-
-  .login-body label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-soft);
-    margin-bottom: 9px;
-  }
+  .login-body label { display: block; font-size: 12px; font-weight: 600; color: var(--text-soft); margin-bottom: 9px; }
 
   .login-body input {
     width: 100%;
@@ -134,14 +113,8 @@
     outline: none;
     transition: border-color .18s, box-shadow .18s;
   }
-  .login-body input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-d);
-  }
-  .login-body input.error {
-    border-color: var(--red);
-    animation: shake 0.35s ease;
-  }
+  .login-body input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-d); }
+  .login-body input.error { border-color: var(--red); animation: shake 0.35s ease; }
 
   .login-btn {
     width: 100%;
@@ -160,22 +133,9 @@
   }
   .login-btn:hover { filter: brightness(1.08); }
   .login-btn:active { transform: scale(0.985); }
+  .login-error { margin-top: 12px; font-size: 13px; font-weight: 500; color: var(--red); text-align: center; min-height: 18px; }
 
-  .login-error {
-    margin-top: 12px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--red);
-    text-align: center;
-    min-height: 18px;
-  }
-
-  /* ═══════ APP ═══════ */
-  #app {
-    display: none;
-    flex-direction: column;
-    height: 100vh;
-  }
+  #app { display: none; flex-direction: column; height: 100vh; }
 
   .topbar {
     flex-shrink: 0;
@@ -188,12 +148,7 @@
     flex-wrap: wrap;
   }
 
-  .topbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-  }
+  .topbar-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
   .brand-mark {
     width: 38px; height: 38px;
     border-radius: 11px;
@@ -202,30 +157,12 @@
     color: #fff; font-family: var(--display); font-weight: 600; font-size: 19px;
     box-shadow: 0 4px 12px rgba(47,125,107,.25);
   }
-  .brand-text .name {
-    font-family: var(--display);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-  }
-  .brand-text .sub {
-    font-size: 11px;
-    color: var(--muted);
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-  }
-
+  .brand-text .name { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.05; letter-spacing: -0.01em; }
+  .brand-text .sub { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
   .topbar-spacer { flex: 1 1 auto; }
 
   .search-wrap { position: relative; display: flex; align-items: center; }
-  .search-icon {
-    position: absolute; left: 13px;
-    color: var(--muted); pointer-events: none;
-    display: grid; place-items: center;
-  }
+  .search-icon { position: absolute; left: 13px; color: var(--muted); pointer-events: none; display: grid; place-items: center; }
   #search-input {
     width: 280px;
     max-width: 100%;
@@ -240,143 +177,64 @@
     transition: border-color .18s, box-shadow .18s, background .18s;
   }
   #search-input::placeholder { color: var(--muted); }
-  #search-input:focus {
-    border-color: var(--accent);
-    background: var(--surface);
-    box-shadow: 0 0 0 4px var(--accent-d);
-  }
+  #search-input:focus { border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px var(--accent-d); }
 
-  /* segmented filter */
-  .seg {
-    display: inline-flex;
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: 11px;
-    padding: 3px;
-    gap: 2px;
-  }
+  .seg { display: inline-flex; background: var(--bg); border: 1.5px solid var(--border); border-radius: 11px; padding: 3px; gap: 2px; }
   .seg button {
-    border: none;
-    background: transparent;
-    color: var(--text-soft);
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all .15s;
-    white-space: nowrap;
+    border: none; background: transparent; color: var(--text-soft);
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all .15s; white-space: nowrap;
   }
   .seg button:hover { color: var(--text); }
-  .seg button.active {
-    background: var(--surface);
-    color: var(--text);
-    box-shadow: 0 1px 3px rgba(20,30,40,.1);
-  }
-  .seg button[data-f="ok"].active    { color: var(--ok); }
-  .seg button[data-f="ago"].active   { color: var(--red); }
+  .seg button.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(20,30,40,.1); }
+  .seg button[data-f="ok"].active  { color: var(--ok); }
+  .seg button[data-f="ago"].active { color: var(--red); }
 
   .refresh-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border: 1.5px solid var(--border);
-    background: var(--surface);
-    color: var(--text-soft);
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 11px;
-    transition: all .18s;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border: 1.5px solid var(--border); background: var(--surface);
+    color: var(--text-soft); font-family: var(--sans); font-size: 13px; font-weight: 600;
+    cursor: pointer; border-radius: 11px; transition: all .18s;
   }
   .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
   .refresh-btn.spinning svg { animation: spin 0.9s linear infinite; }
 
-  /* STATS */
   .stats-bar {
-    flex-shrink: 0;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-shrink: 0; background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   }
-  .stat-chip {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    padding: 7px 14px;
-    border-radius: 999px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-  }
-  .stat-chip .stat-value {
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .stat-chip .stat-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-soft);
-  }
+  .stat-chip { display: flex; align-items: baseline; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); }
+  .stat-chip .stat-value { font-family: var(--display); font-size: 17px; font-weight: 600; color: var(--text); }
+  .stat-chip .stat-label { font-size: 12px; font-weight: 600; color: var(--text-soft); }
   .stat-chip.ok  { background: var(--ok-bg);  border-color: var(--ok-bd); }
-  .stat-chip.ok  .stat-value,  .stat-chip.ok  .stat-label  { color: var(--ok); }
+  .stat-chip.ok  .stat-value, .stat-chip.ok  .stat-label { color: var(--ok); }
   .stat-chip.ago { background: var(--red-bg); border-color: var(--red-bd); }
-  .stat-chip.ago .stat-value, .stat-chip.ago .stat-label   { color: var(--red); }
+  .stat-chip.ago .stat-value, .stat-chip.ago .stat-label { color: var(--red); }
+  .last-update { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 500; }
 
-  .last-update {
-    margin-left: auto;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 500;
-  }
-
-  /* TABLE */
-  .table-wrap {
-    flex: 1 1 auto;
-    overflow: auto;
-    padding: 18px 24px 28px;
-  }
+  .table-wrap { flex: 1 1 auto; overflow: auto; padding: 18px 24px 28px; }
   .table-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    overflow: hidden;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  table { width: 100%; border-collapse: collapse; }
+  table { width: 100%; min-width: 480px; border-collapse: collapse; }
 
   thead th {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #fbfcfd;
-    border-bottom: 1px solid var(--border);
-    padding: 13px 18px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--muted);
-    letter-spacing: .07em;
-    text-transform: uppercase;
-    white-space: nowrap;
+    position: sticky; top: 0; z-index: 5;
+    background: #fbfcfd; border-bottom: 1px solid var(--border);
+    padding: 13px 18px; text-align: left;
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    letter-spacing: .07em; text-transform: uppercase; white-space: nowrap;
   }
   thead th:first-child { padding-left: 24px; width: 110px; }
   thead th:last-child  { padding-right: 24px; width: 140px; text-align: right; }
   thead th:nth-child(3){ width: 110px; text-align: right; }
 
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background .12s;
-    animation: rowIn .3s ease both;
-  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; animation: rowIn .3s ease both; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #f7f9fa; }
   tbody tr.agotado { background: var(--red-row); }
@@ -387,58 +245,27 @@
   tbody td:last-child  { padding-right: 24px; text-align: right; }
   tbody td:nth-child(3){ text-align: right; }
 
-  .col-codigo {
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: .02em;
-  }
-  .col-nombre {
-    font-size: 14.5px;
-    font-weight: 500;
-    color: var(--text);
-  }
-  .col-stock {
-    font-family: var(--display);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-  }
+  .col-codigo { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+  .col-nombre { font-size: 14.5px; font-weight: 500; color: var(--text); }
+  .col-stock  { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--text); }
   .col-stock.zero { color: var(--red); }
   .col-stock.low  { color: var(--amber); }
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 11px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .03em;
-    border-radius: 999px;
-  }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; font-size: 11px; font-weight: 700; letter-spacing: .03em; border-radius: 999px; }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-  .badge-ok      { background: var(--ok-bg);  color: var(--ok);  }
+  .badge-ok      { background: var(--ok-bg);  color: var(--ok); }
   .badge-agotado { background: var(--red-bg); color: var(--red); }
 
-  .state-row td {
-    text-align: center !important;
-    padding: 64px 24px;
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 500;
-  }
+  .state-row td { text-align: center !important; padding: 64px 24px; color: var(--muted); font-size: 14px; font-weight: 500; }
   .loading-dots span { animation: blink 1.4s infinite both; font-size: 22px; }
   .loading-dots span:nth-child(2) { animation-delay: .2s; }
   .loading-dots span:nth-child(3) { animation-delay: .4s; }
 
-  /* ANIMATIONS */
   @keyframes fadeIn { from { opacity:0; transform: translateY(10px);} to {opacity:1; transform:none;} }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes rowIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes blink { 0%,80%,100%{opacity:0} 40%{opacity:1} }
+  @keyframes shake  { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  @keyframes spin   { to { transform: rotate(360deg); } }
+  @keyframes rowIn  { from { opacity:0; } to { opacity:1; } }
+  @keyframes blink  { 0%,80%,100%{opacity:0} 40%{opacity:1} }
 
   @media (max-width: 640px) {
     .topbar { padding: 12px 14px; gap: 10px; }
@@ -452,7 +279,6 @@
 </head>
 <body>
 
-<!-- ═══════ LOGIN ═══════ -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-header">
@@ -469,9 +295,7 @@
   </div>
 </div>
 
-<!-- ═══════ APP ═══════ -->
 <div id="app">
-
   <header class="topbar">
     <div class="topbar-brand">
       <div class="brand-mark">+</div>
@@ -480,22 +304,18 @@
         <div class="sub">RASI</div>
       </div>
     </div>
-
     <div class="topbar-spacer"></div>
-
     <div class="search-wrap">
       <span class="search-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </span>
       <input type="text" id="search-input" placeholder="Buscar por nombre…" autocomplete="off">
     </div>
-
     <div class="seg" id="filter-seg">
       <button data-f="all" class="active">Todos</button>
       <button data-f="ok">OK</button>
       <button data-f="ago">Agotados</button>
     </div>
-
     <button class="refresh-btn" id="refresh-btn">
       <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
         <path d="M10.5 6A4.5 4.5 0 1 1 6 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
@@ -530,7 +350,6 @@
       </table>
     </div>
   </div>
-
 </div>
 
 <script>
@@ -541,9 +360,8 @@ const PASSWORD    = 'boli-ctm';
 const SESSION_KEY = 'rasi_stock_auth';
 
 let allRows = [];
-let filterMode = 'all'; // all | ok | ago
+let filterMode = 'all';
 
-// ── AUTH ──────────────────────────────
 const loginScreen = document.getElementById('login-screen');
 const appEl       = document.getElementById('app');
 const passInput   = document.getElementById('pass-input');
@@ -573,50 +391,41 @@ function tryLogin() {
 loginBtn.addEventListener('click', tryLogin);
 passInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
 
-// ── DATA ──────────────────────────────
 async function loadData() {
   const tbody = document.getElementById('table-body');
   const refreshBtn = document.getElementById('refresh-btn');
-
-  tbody.innerHTML = `<tr class="state-row"><td colspan="4"><div class="loading-dots"><span>·</span><span>·</span><span>·</span></div></td></tr>`;
+  tbody.innerHTML = '<tr class="state-row"><td colspan="4"><div class="loading-dots"><span>·</span><span>·</span><span>·</span></div></td></tr>';
   refreshBtn.classList.add('spinning');
-
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-
+  const url = 'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/' + RANGE + '?key=' + API_KEY;
   try {
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     const rows = (data.values || []).slice(1);
-
     allRows = rows.map(r => ({
       codigo: r[0] || '',
       nombre: r[1] || '',
       stock:  r[3] !== undefined ? parseInt(r[3], 10) || 0 : 0,
       estado: (r[5] || '').trim().toUpperCase(),
     }));
-
     updateStats();
     renderTable();
-
     const now = new Date();
     document.getElementById('last-update').textContent =
-      `Actualizado ${now.toLocaleTimeString('es-PY', {hour:'2-digit', minute:'2-digit'})}`;
+      'Actualizado ' + now.toLocaleTimeString('es-PY', {hour:'2-digit', minute:'2-digit'});
   } catch (err) {
-    tbody.innerHTML = `<tr class="state-row"><td colspan="4" style="color:var(--red)">Error al cargar datos · ${err.message}</td></tr>`;
+    tbody.innerHTML = '<tr class="state-row"><td colspan="4" style="color:var(--red)">Error al cargar datos · ' + err.message + '</td></tr>';
   } finally {
     refreshBtn.classList.remove('spinning');
   }
 }
 
-// ── FUZZY (acento-insensible, por nombre) ──
 function norm(s) {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 function fuzzy(query, target) {
   const q = norm(query), t = norm(target);
   if (t.includes(q)) return true;
-  // subsecuencia: caracteres de q en orden dentro de t (tolera typos por omisión)
   let i = 0;
   for (let j = 0; j < t.length && i < q.length; j++) {
     if (t[j] === q[i]) i++;
@@ -624,43 +433,34 @@ function fuzzy(query, target) {
   return i === q.length;
 }
 
-// ── RENDER ────────────────────────────
 function renderTable() {
   const query = document.getElementById('search-input').value.trim();
   const tbody = document.getElementById('table-body');
-
   let rows = allRows;
   if (filterMode === 'ok')  rows = rows.filter(r => r.estado !== 'AGOTADO');
   if (filterMode === 'ago') rows = rows.filter(r => r.estado === 'AGOTADO');
   if (query) rows = rows.filter(r => fuzzy(query, r.nombre));
-
   document.getElementById('stat-vis').textContent = rows.length;
-
   if (rows.length === 0) {
-    tbody.innerHTML = `<tr class="state-row"><td colspan="4">Sin resultados</td></tr>`;
+    tbody.innerHTML = '<tr class="state-row"><td colspan="4">Sin resultados</td></tr>';
     return;
   }
-
   const fragment = document.createDocumentFragment();
   rows.forEach((r, i) => {
     const tr = document.createElement('tr');
     const agotado = r.estado === 'AGOTADO';
     if (agotado) tr.classList.add('agotado');
-    tr.style.animationDelay = `${Math.min(i * 10, 180)}ms`;
-
+    tr.style.animationDelay = Math.min(i * 10, 180) + 'ms';
     const badgeClass = agotado ? 'badge badge-agotado' : 'badge badge-ok';
     const badgeLabel = agotado ? 'AGOTADO' : 'OK';
     const stockClass = r.stock === 0 ? 'col-stock zero' : r.stock <= 5 ? 'col-stock low' : 'col-stock';
-
-    tr.innerHTML = `
-      <td><span class="col-codigo">${esc(r.codigo)}</span></td>
-      <td><span class="col-nombre">${esc(r.nombre)}</span></td>
-      <td><span class="${stockClass}">${r.stock}</span></td>
-      <td><span class="${badgeClass}"><span class="badge-dot"></span>${badgeLabel}</span></td>
-    `;
+    tr.innerHTML =
+      '<td><span class="col-codigo">' + esc(r.codigo) + '</span></td>' +
+      '<td><span class="col-nombre">' + esc(r.nombre) + '</span></td>' +
+      '<td><span class="' + stockClass + '">' + r.stock + '</span></td>' +
+      '<td><span class="' + badgeClass + '"><span class="badge-dot"></span>' + badgeLabel + '</span></td>';
     fragment.appendChild(tr);
   });
-
   tbody.innerHTML = '';
   tbody.appendChild(fragment);
 }
@@ -678,9 +478,7 @@ function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-// ── CONTROLS ──────────────────────────
 document.getElementById('search-input').addEventListener('input', renderTable);
-
 document.getElementById('filter-seg').addEventListener('click', e => {
   const btn = e.target.closest('button[data-f]');
   if (!btn) return;
@@ -688,7 +486,6 @@ document.getElementById('filter-seg').addEventListener('click', e => {
   document.querySelectorAll('#filter-seg button').forEach(b => b.classList.toggle('active', b === btn));
   renderTable();
 });
-
 document.getElementById('refresh-btn').addEventListener('click', loadData);
 </script>
 </body>
