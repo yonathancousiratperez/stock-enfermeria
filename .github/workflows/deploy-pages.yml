@@ -1,0 +1,45 @@
+# Publica la web de stock en GitHub Pages.
+#
+# Reemplaza al workflow automatico "pages build and deployment" (el clasico de
+# "Deploy from a branch"), que el 2026-08-06 quedo trabado en `deployment_queued`
+# y abortaba por timeout sin llegar a publicar nunca.
+#
+# El sitio es HTML estatico puro: no hay build, solo se sube el repo tal cual.
+
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # permite reintentar a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue por vez. No cancela el que esta en curso: dejar a medias una
+# publicacion es peor que esperar a que termine.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - name: Subir el sitio
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
