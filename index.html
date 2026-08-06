@@ -24,6 +24,7 @@
     --red-bd:    #f5c2c2;
     --red-row:   #fdf4f4;
     --amber:     #c87a12;
+    --amber-bg:  #fdf3e3;
     --accent:    #2f7d6b;
     --accent-d:  #25665757;
     --shadow:    0 1px 2px rgba(20,30,40,.04), 0 6px 24px rgba(20,30,40,.05);
@@ -49,6 +50,7 @@
   ::-webkit-scrollbar-thumb { background: #cfd6dd; border-radius: 8px; border: 3px solid var(--bg); }
   ::-webkit-scrollbar-thumb:hover { background: #b6bfc8; }
 
+  /* ═══════ LOGIN ═══════ */
   #login-screen {
     display: flex;
     align-items: center;
@@ -72,7 +74,10 @@
     animation: fadeIn 0.45s cubic-bezier(.2,.7,.3,1);
   }
 
-  .login-header { padding: 34px 34px 22px; border-bottom: 1px solid var(--border); }
+  .login-header {
+    padding: 34px 34px 22px;
+    border-bottom: 1px solid var(--border);
+  }
 
   .login-badge {
     display: inline-flex;
@@ -87,7 +92,11 @@
     letter-spacing: .02em;
     margin-bottom: 16px;
   }
-  .login-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+  .login-badge::before {
+    content: '';
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--ok);
+  }
 
   .login-header h1 {
     font-family: var(--display);
@@ -97,9 +106,23 @@
     color: var(--text);
     letter-spacing: -0.01em;
   }
-  .login-header .sub { font-size: 14px; color: var(--text-soft); margin-top: 8px; }
+
+  .login-header .sub {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-top: 8px;
+  }
+
   .login-body { padding: 26px 34px 32px; }
-  .login-body label { display: block; font-size: 12px; font-weight: 600; color: var(--text-soft); margin-bottom: 9px; }
+
+  .login-body label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-soft);
+    margin-bottom: 9px;
+  }
+  .login-body label + input { margin-bottom: 16px; }
 
   .login-body input {
     width: 100%;
@@ -113,12 +136,18 @@
     outline: none;
     transition: border-color .18s, box-shadow .18s;
   }
-  .login-body input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-d); }
-  .login-body input.error { border-color: var(--red); animation: shake 0.35s ease; }
+  .login-body input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-d);
+  }
+  .login-body input.error {
+    border-color: var(--red);
+    animation: shake 0.35s ease;
+  }
 
   .login-btn {
     width: 100%;
-    margin-top: 18px;
+    margin-top: 4px;
     padding: 14px;
     background: var(--accent);
     color: #fff;
@@ -133,9 +162,23 @@
   }
   .login-btn:hover { filter: brightness(1.08); }
   .login-btn:active { transform: scale(0.985); }
-  .login-error { margin-top: 12px; font-size: 13px; font-weight: 500; color: var(--red); text-align: center; min-height: 18px; }
+  .login-btn:disabled { opacity: .6; cursor: default; }
 
-  #app { display: none; flex-direction: column; height: 100vh; }
+  .login-error {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--red);
+    text-align: center;
+    min-height: 18px;
+  }
+
+  /* ═══════ APP ═══════ */
+  #app {
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+  }
 
   .topbar {
     flex-shrink: 0;
@@ -148,7 +191,12 @@
     flex-wrap: wrap;
   }
 
-  .topbar-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
   .brand-mark {
     width: 38px; height: 38px;
     border-radius: 11px;
@@ -157,12 +205,30 @@
     color: #fff; font-family: var(--display); font-weight: 600; font-size: 19px;
     box-shadow: 0 4px 12px rgba(47,125,107,.25);
   }
-  .brand-text .name { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.05; letter-spacing: -0.01em; }
-  .brand-text .sub { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .brand-text .name {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .brand-text .sub {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
   .topbar-spacer { flex: 1 1 auto; }
 
   .search-wrap { position: relative; display: flex; align-items: center; }
-  .search-icon { position: absolute; left: 13px; color: var(--muted); pointer-events: none; display: grid; place-items: center; }
+  .search-icon {
+    position: absolute; left: 13px;
+    color: var(--muted); pointer-events: none;
+    display: grid; place-items: center;
+  }
   #search-input {
     width: 280px;
     max-width: 100%;
@@ -177,42 +243,159 @@
     transition: border-color .18s, box-shadow .18s, background .18s;
   }
   #search-input::placeholder { color: var(--muted); }
-  #search-input:focus { border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px var(--accent-d); }
+  #search-input:focus {
+    border-color: var(--accent);
+    background: var(--surface);
+    box-shadow: 0 0 0 4px var(--accent-d);
+  }
 
-  .seg { display: inline-flex; background: var(--bg); border: 1.5px solid var(--border); border-radius: 11px; padding: 3px; gap: 2px; }
+  /* segmented filter */
+  .seg {
+    display: inline-flex;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 11px;
+    padding: 3px;
+    gap: 2px;
+  }
   .seg button {
-    border: none; background: transparent; color: var(--text-soft);
-    font-family: var(--sans); font-size: 13px; font-weight: 600;
-    padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all .15s; white-space: nowrap;
+    border: none;
+    background: transparent;
+    color: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
   }
   .seg button:hover { color: var(--text); }
-  .seg button.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(20,30,40,.1); }
-  .seg button[data-f="ok"].active  { color: var(--ok); }
-  .seg button[data-f="ago"].active { color: var(--red); }
+  .seg button.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(20,30,40,.1);
+  }
+  .seg button[data-f="ok"].active    { color: var(--ok); }
+  .seg button[data-f="rep"].active   { color: var(--amber); }
+  .seg button[data-f="ago"].active   { color: var(--red); }
 
   .refresh-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 16px; border: 1.5px solid var(--border); background: var(--surface);
-    color: var(--text-soft); font-family: var(--sans); font-size: 13px; font-weight: 600;
-    cursor: pointer; border-radius: 11px; transition: all .18s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 11px;
+    transition: all .18s;
+    white-space: nowrap;
   }
   .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
   .refresh-btn.spinning svg { animation: spin 0.9s linear infinite; }
 
-  .stats-bar {
-    flex-shrink: 0; background: var(--surface); border-bottom: 1px solid var(--border);
-    padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  .primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 11px;
+    transition: filter .18s, transform .08s;
+    white-space: nowrap;
   }
-  .stat-chip { display: flex; align-items: baseline; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); }
-  .stat-chip .stat-value { font-family: var(--display); font-size: 17px; font-weight: 600; color: var(--text); }
-  .stat-chip .stat-label { font-size: 12px; font-weight: 600; color: var(--text-soft); }
-  .stat-chip.ok  { background: var(--ok-bg);  border-color: var(--ok-bd); }
-  .stat-chip.ok  .stat-value, .stat-chip.ok  .stat-label { color: var(--ok); }
-  .stat-chip.ago { background: var(--red-bg); border-color: var(--red-bd); }
-  .stat-chip.ago .stat-value, .stat-chip.ago .stat-label { color: var(--red); }
-  .last-update { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 500; }
+  .primary-btn:hover { filter: brightness(1.08); }
+  .primary-btn:active { transform: scale(0.985); }
+  .primary-btn:disabled { opacity: .55; cursor: default; }
 
-  .table-wrap { flex: 1 1 auto; overflow: auto; padding: 18px 24px 28px; }
+  .icon-btn {
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    width: 38px; height: 38px;
+    border-radius: 11px;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: all .18s;
+  }
+  .icon-btn:hover { border-color: var(--red); color: var(--red); }
+
+  /* STATS */
+  .stats-bar {
+    flex-shrink: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .stat-chip {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .stat-chip .stat-value {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .stat-chip .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-soft);
+  }
+  .stat-chip.ok  { background: var(--ok-bg);  border-color: var(--ok-bd); }
+  .stat-chip.ok  .stat-value,  .stat-chip.ok  .stat-label  { color: var(--ok); }
+  .stat-chip.ago { background: var(--red-bg); border-color: var(--red-bd); }
+  .stat-chip.ago .stat-value, .stat-chip.ago .stat-label   { color: var(--red); }
+  .stat-chip.rep { background: var(--amber-bg); border-color: #f0dcb8; }
+  .stat-chip.rep .stat-value, .stat-chip.rep .stat-label   { color: var(--amber); }
+
+  /* indicador de conexion en vivo */
+  .live {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+  .live.on  { color: var(--ok); }
+  .live.on  .live-dot { background: var(--ok); animation: pulse 2s ease-in-out infinite; }
+  .live.off { color: var(--amber); }
+  .live.off .live-dot { background: var(--amber); }
+
+  /* TABLE */
+  .table-wrap {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 18px 24px 28px;
+  }
   .table-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -224,48 +407,281 @@
   table { width: 100%; min-width: 480px; border-collapse: collapse; }
 
   thead th {
-    position: sticky; top: 0; z-index: 5;
-    background: #fbfcfd; border-bottom: 1px solid var(--border);
-    padding: 13px 18px; text-align: left;
-    font-size: 11px; font-weight: 700; color: var(--muted);
-    letter-spacing: .07em; text-transform: uppercase; white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fbfcfd;
+    border-bottom: 1px solid var(--border);
+    padding: 13px 18px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
   thead th:first-child { padding-left: 24px; width: 110px; }
   thead th:last-child  { padding-right: 24px; width: 140px; text-align: right; }
   thead th:nth-child(3){ width: 110px; text-align: right; }
 
-  tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; animation: rowIn .3s ease both; }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .12s;
+    animation: rowIn .3s ease both;
+  }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #f7f9fa; }
   tbody tr.agotado { background: var(--red-row); }
   tbody tr.agotado:hover { background: #fbeaea; }
+  tbody tr.clickable { cursor: pointer; }
+  /* fila que acaba de cambiar por Realtime */
+  tbody tr.flash { animation: flash 1.4s ease both; }
 
   tbody td { padding: 13px 18px; vertical-align: middle; }
   tbody td:first-child { padding-left: 24px; }
   tbody td:last-child  { padding-right: 24px; text-align: right; }
   tbody td:nth-child(3){ text-align: right; }
 
-  .col-codigo { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
-  .col-nombre { font-size: 14.5px; font-weight: 500; color: var(--text); }
-  .col-stock  { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--text); }
+  .col-codigo {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: .02em;
+  }
+  .col-nombre {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .col-presentacion {
+    display: block;
+    font-size: 11.5px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .col-stock {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+  }
   .col-stock.zero { color: var(--red); }
   .col-stock.low  { color: var(--amber); }
 
-  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; font-size: 11px; font-weight: 700; letter-spacing: .03em; border-radius: 999px; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    border-radius: 999px;
+  }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-  .badge-ok      { background: var(--ok-bg);  color: var(--ok); }
-  .badge-agotado { background: var(--red-bg); color: var(--red); }
+  .badge-ok       { background: var(--ok-bg);    color: var(--ok);    }
+  .badge-agotarse { background: var(--amber-bg); color: var(--amber); }
+  .badge-bajo     { background: var(--red-bg);   color: var(--red);   }
+  .badge-agotado  { background: var(--red-bg);   color: var(--red);   }
 
-  .state-row td { text-align: center !important; padding: 64px 24px; color: var(--muted); font-size: 14px; font-weight: 500; }
+  /* fila de edicion de minimos */
+  .min-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .min-item:last-child { border-bottom: none; }
+  .min-item .mi-info { flex: 1 1 auto; min-width: 0; }
+  .min-item .mi-name {
+    font-size: 13.5px; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .min-item .mi-meta { font-size: 11px; font-weight: 600; color: var(--muted); }
+  .min-item input[type=number] {
+    width: 78px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 14px;
+    padding: 7px 8px;
+    background: var(--bg);
+    border: 1.5px solid var(--border2);
+    border-radius: 9px;
+    font-family: var(--sans);
+    color: var(--text);
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+  }
+  .min-item input[type=number]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-d);
+  }
+  .min-item input.saved { border-color: var(--ok); background: var(--ok-bg); }
+  .min-item input.failed { border-color: var(--red); background: var(--red-bg); }
+  .min-list { max-height: 44vh; overflow: auto; border: 1px solid var(--border); border-radius: 10px; margin-top: 8px; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--text-soft);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+  .state-row td {
+    text-align: center !important;
+    padding: 64px 24px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+  }
   .loading-dots span { animation: blink 1.4s infinite both; font-size: 22px; }
   .loading-dots span:nth-child(2) { animation-delay: .2s; }
   .loading-dots span:nth-child(3) { animation-delay: .4s; }
 
+  /* ═══════ MODAL ═══════ */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(24,32,40,.35);
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    width: 440px;
+    max-width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(20,30,40,.22);
+    animation: fadeIn .25s cubic-bezier(.2,.7,.3,1);
+    overflow: hidden;
+  }
+  .modal-head {
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .modal-head h2 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .modal-head .hint {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    margin-top: 4px;
+  }
+  .modal-body { padding: 20px 24px; overflow: auto; }
+  .modal-foot {
+    padding: 16px 24px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  .modal label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+  }
+  .modal input[type=text], .modal input[type=number] {
+    width: 100%;
+    background: var(--bg);
+    border: 1.5px solid var(--border2);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+  }
+  .modal input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-d);
+  }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  .field .sublabel {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  .pick-list {
+    max-height: 210px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+  .pick-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: background .12s;
+  }
+  .pick-item:last-child { border-bottom: none; }
+  .pick-item:hover, .pick-item.sel { background: var(--ok-bg); }
+  .pick-item .pi-name { font-size: 13.5px; font-weight: 500; }
+  .pick-item .pi-code { font-size: 11px; font-weight: 600; color: var(--muted); }
+  .pick-item .pi-stock { font-family: var(--display); font-size: 15px; font-weight: 600; color: var(--text-soft); }
+  .pick-empty { padding: 22px; text-align: center; color: var(--muted); font-size: 13px; }
+
+  .modal-msg {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 18px;
+  }
+  .modal-msg.err { color: var(--red); }
+  .modal-msg.ok  { color: var(--ok); }
+
+  .ghost-btn {
+    padding: 11px 18px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .18s;
+  }
+  .ghost-btn:hover { border-color: var(--border2); color: var(--text); }
+
+  /* ANIMATIONS */
   @keyframes fadeIn { from { opacity:0; transform: translateY(10px);} to {opacity:1; transform:none;} }
-  @keyframes shake  { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
-  @keyframes spin   { to { transform: rotate(360deg); } }
-  @keyframes rowIn  { from { opacity:0; } to { opacity:1; } }
-  @keyframes blink  { 0%,80%,100%{opacity:0} 40%{opacity:1} }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes rowIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes blink { 0%,80%,100%{opacity:0} 40%{opacity:1} }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  @keyframes flash { 0%{background:#dff3e8} 100%{background:transparent} }
 
   @media (max-width: 640px) {
     .topbar { padding: 12px 14px; gap: 10px; }
@@ -273,29 +689,33 @@
     .search-wrap { order: 3; width: 100%; }
     .stats-bar { padding: 10px 14px; }
     .table-wrap { padding: 12px 12px 20px; }
-    .last-update { width: 100%; margin: 4px 0 0; }
+    .live { width: 100%; margin: 4px 0 0; }
+    .refresh-btn span { display: none; }
   }
 </style>
 </head>
 <body>
 
+<!-- ═══════ LOGIN ═══════ -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-header">
       <span class="login-badge">RASI · Enfermería</span>
       <h1>Stock de<br>Medicamentos</h1>
-      <div class="sub">Monitoreo de inventario en tiempo real</div>
+      <div class="sub">Inventario en tiempo real</div>
     </div>
     <div class="login-body">
-      <label for="pass-input">Contraseña de acceso</label>
-      <input type="password" id="pass-input" placeholder="Ingresá la contraseña" autocomplete="off" spellcheck="false">
+      <label for="pass-input">Contraseña</label>
+      <input type="password" id="pass-input" placeholder="Contraseña de Enfermería" autocomplete="current-password" spellcheck="false">
       <button class="login-btn" id="login-btn">Ingresar</button>
       <div class="login-error" id="login-error"></div>
     </div>
   </div>
 </div>
 
+<!-- ═══════ APP ═══════ -->
 <div id="app">
+
   <header class="topbar">
     <div class="topbar-brand">
       <div class="brand-mark">+</div>
@@ -304,33 +724,53 @@
         <div class="sub">RASI</div>
       </div>
     </div>
+
     <div class="topbar-spacer"></div>
+
     <div class="search-wrap">
       <span class="search-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </span>
       <input type="text" id="search-input" placeholder="Buscar por nombre…" autocomplete="off">
     </div>
+
     <div class="seg" id="filter-seg">
       <button data-f="all" class="active">Todos</button>
       <button data-f="ok">OK</button>
+      <button data-f="rep">Por reponer</button>
       <button data-f="ago">Agotados</button>
     </div>
+
+    <button class="refresh-btn" id="minimos-btn" style="display:none">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5h10M2 7h10M2 3.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="4.5" cy="10.5" r="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/></svg>
+      <span>Mínimos</span>
+    </button>
+
+    <button class="primary-btn" id="entrada-btn" style="display:none">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Cargar entrada
+    </button>
+
     <button class="refresh-btn" id="refresh-btn">
       <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
         <path d="M10.5 6A4.5 4.5 0 1 1 6 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         <path d="M6 1.5L8 3.5M6 1.5L8 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Actualizar
+      <span>Actualizar</span>
+    </button>
+
+    <button class="icon-btn" id="logout-btn" title="Cerrar sesión">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M6 2H3.5A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10.5 11L13.5 8l-3-3M13 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </header>
 
   <div class="stats-bar">
     <div class="stat-chip"><span class="stat-value" id="stat-total">—</span><span class="stat-label">Total</span></div>
     <div class="stat-chip ok"><span class="stat-value" id="stat-ok">—</span><span class="stat-label">En stock</span></div>
+    <div class="stat-chip rep"><span class="stat-value" id="stat-rep">—</span><span class="stat-label">Por reponer</span></div>
     <div class="stat-chip ago"><span class="stat-value" id="stat-ago">—</span><span class="stat-label">Agotados</span></div>
     <div class="stat-chip"><span class="stat-value" id="stat-vis">—</span><span class="stat-label">Visibles</span></div>
-    <span class="last-update" id="last-update"></span>
+    <span class="live" id="live-badge"><span class="live-dot"></span><span id="live-text">conectando…</span></span>
   </div>
 
   <div class="table-wrap">
@@ -350,82 +790,286 @@
       </table>
     </div>
   </div>
+
 </div>
 
-<script>
-const SHEET_ID    = '1zd3kEnsODldqbwNIQDo0XdGKVeehrXYspWN4KfPIhBI';
-const API_KEY     = 'AIzaSyDTRrFeomc46uqQDTR5uS0yQn5dOIbixgQ';
-const RANGE       = 'Stock!A:F';
-const PASSWORD    = 'boli-ctm';
-const SESSION_KEY = 'rasi_stock_auth';
+<!-- ═══════ MODAL: CARGAR ENTRADA ═══════ -->
+<div class="modal-backdrop" id="entrada-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2>Cargar entrada</h2>
+        <div class="hint">Compra o reposición de medicamentos</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="ent-search">Medicamento</label>
+        <input type="text" id="ent-search" placeholder="Buscar por nombre…" autocomplete="off">
+        <div class="pick-list" id="ent-list"></div>
+      </div>
+      <div class="field">
+        <label for="ent-cant">Cantidad (unidades)</label>
+        <input type="number" id="ent-cant" min="1" step="1" placeholder="Ej: 30">
+        <div class="sublabel">Se cuenta por unidad suelta (comprimido, ampolla, sobre) — no por caja.</div>
+      </div>
+      <div class="modal-msg" id="ent-msg"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="ghost-btn" data-close="entrada-modal">Cancelar</button>
+      <button class="primary-btn" id="ent-submit">Registrar entrada</button>
+    </div>
+  </div>
+</div>
 
-let allRows = [];
-let filterMode = 'all';
+<!-- ═══════ MODAL: STOCK MÍNIMO ═══════ -->
+<div class="modal-backdrop" id="minimos-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2>Stock mínimo</h2>
+        <div class="hint">Cuántas unidades como mínimo debe haber de cada medicamento</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="min-search">Buscar medicamento</label>
+        <input type="text" id="min-search" placeholder="Buscar por nombre…" autocomplete="off">
+        <div class="min-list" id="min-list"></div>
+        <div class="sublabel">Se guarda solo al salir del campo. Poné 0 para no controlar ese medicamento.</div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--red)"></i> Faltante — stock igual o por debajo del mínimo</span>
+        <span><i style="background:var(--amber)"></i> Se acerca al límite</span>
+        <span><i style="background:var(--ok)"></i> OK</span>
+      </div>
+      <div class="modal-msg" id="min-msg"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="ghost-btn" data-close="minimos-modal">Cerrar</button>
+    </div>
+  </div>
+</div>
 
+<!-- ═══════ MODAL: AJUSTAR STOCK ═══════ -->
+<div class="modal-backdrop" id="ajuste-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2>Ajustar stock</h2>
+        <div class="hint" id="aju-sub">—</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="aju-real">Stock real contado (unidades)</label>
+        <input type="number" id="aju-real" step="1" placeholder="Ej: 12">
+        <div class="sublabel">Fija el stock a este valor. Queda registrado como corrección de inventario.</div>
+      </div>
+      <div class="field">
+        <label for="aju-motivo">Motivo</label>
+        <input type="text" id="aju-motivo" placeholder="Ej: recuento físico de agosto">
+      </div>
+      <div class="modal-msg" id="aju-msg"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="ghost-btn" data-close="ajuste-modal">Cancelar</button>
+      <button class="primary-btn" id="aju-submit">Guardar ajuste</button>
+    </div>
+  </div>
+</div>
+
+<!-- supabase-js 2.112.1 servido desde el propio repo: si el CDN se cae, la web
+     sigue abriendo, y la version queda fija (ninguna actualizacion sorpresa). -->
+<script src="supabase.js"></script>
+<script type="module">
+const { createClient } = window.supabase;
+
+// ── CONFIG ────────────────────────────
+// La publishable key es publica por diseño. Lo que protege los datos es el RLS
+// del lado del servidor: sin sesion iniciada no devuelve absolutamente nada, y
+// con sesion solo expone las columnas de stock de `medicacion` y el historial
+// de `movimientos_stock`. Las tablas de pacientes no tienen ninguna politica.
+const SUPABASE_URL = 'https://wvmlfieuquwvmhaawuqi.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Bi5hcTPsq7fM8W3qD15FTQ_SbGh0ZyV';
+
+// Login de una sola contrasena: la cuenta es fija y vive en Supabase Auth.
+// El identificador puede estar en el fuente; la contrasena NO esta aca (la valida
+// Supabase). Cambiarla se hace en el Dashboard, sin tocar el codigo.
+const CUENTA_ENFERMERIA = 'enfermeria@astillerorasi.com.py';
+
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let allRows    = [];
+let filterMode = 'all';   // all | ok | ago
+let rol        = null;    // lectura | carga | admin
+let entradaSel = null;    // medicamento elegido en el modal de entrada
+let ajusteSel  = null;    // medicamento elegido para ajustar
+let canal      = null;    // canal Realtime
+
+// ── AUTH ──────────────────────────────
 const loginScreen = document.getElementById('login-screen');
 const appEl       = document.getElementById('app');
 const passInput   = document.getElementById('pass-input');
 const loginBtn    = document.getElementById('login-btn');
 const loginError  = document.getElementById('login-error');
 
-function unlock() {
+async function unlock() {
   loginScreen.style.display = 'none';
   appEl.style.display = 'flex';
-  loadData();
+
+  const { data } = await sb.rpc('stock_rol_actual');
+  rol = data || 'lectura';
+  const puedeCargar = (rol === 'carga' || rol === 'admin') ? 'inline-flex' : 'none';
+  document.getElementById('entrada-btn').style.display = puedeCargar;
+  document.getElementById('minimos-btn').style.display = puedeCargar;
+
+  await loadData();
+  suscribir();
 }
 
-if (sessionStorage.getItem(SESSION_KEY) === '1') unlock();
+async function tryLogin() {
+  const email = CUENTA_ENFERMERIA;
+  const pass  = passInput.value;
+  if (!pass) {
+    loginError.textContent = 'Ingresá la contraseña';
+    return;
+  }
 
-function tryLogin() {
-  if (passInput.value === PASSWORD) {
-    sessionStorage.setItem(SESSION_KEY, '1');
-    loginError.textContent = '';
-    unlock();
-  } else {
+  loginBtn.disabled = true;
+  loginBtn.textContent = 'Ingresando…';
+  loginError.textContent = '';
+
+  const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+
+  loginBtn.disabled = false;
+  loginBtn.textContent = 'Ingresar';
+
+  if (error) {
     passInput.classList.add('error');
-    loginError.textContent = 'Contraseña incorrecta';
+    loginError.textContent = error.message === 'Invalid login credentials'
+      ? 'Contraseña incorrecta'
+      : error.message;
     passInput.value = '';
     setTimeout(() => passInput.classList.remove('error'), 500);
+    return;
   }
+  unlock();
 }
+
 loginBtn.addEventListener('click', tryLogin);
 passInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+  if (canal) await sb.removeChannel(canal);
+  await sb.auth.signOut();
+  location.reload();
+});
+
+// sesion persistida por supabase-js
+const { data: { session } } = await sb.auth.getSession();
+if (session) unlock();
+
+// ── DATA ──────────────────────────────
+// Semaforo. Con stock_minimo en 0 el medicamento no se controla: solo avisa si
+// llega a cero. Con un minimo cargado:
+//   ROJO     stock <= minimo          -> faltante, hay que comprar
+//   AMARILLO stock <= minimo * 1.5    -> se esta acercando al limite
+//   VERDE    por encima de eso
+function estadoDe(stock, minimo) {
+  if (stock <= 0) return 'AGOTADO';                                        // rojo
+  if (minimo > 0 && stock <= minimo) return 'BAJO';                        // rojo
+  if (minimo > 0 && stock <= Math.ceil(minimo * 1.5)) return 'POR AGOTARSE'; // amarillo
+  return 'OK';
+}
+
+const ROJOS = ['AGOTADO', 'BAJO'];
+const esRojo    = r => ROJOS.includes(r.estado);
+const esReponer = r => r.estado !== 'OK';
 
 async function loadData() {
   const tbody = document.getElementById('table-body');
   const refreshBtn = document.getElementById('refresh-btn');
-  tbody.innerHTML = '<tr class="state-row"><td colspan="4"><div class="loading-dots"><span>·</span><span>·</span><span>·</span></div></td></tr>';
+
+  tbody.innerHTML = `<tr class="state-row"><td colspan="4"><div class="loading-dots"><span>·</span><span>·</span><span>·</span></div></td></tr>`;
   refreshBtn.classList.add('spinning');
-  const url = 'https://sheets.googleapis.com/v4/spreadsheets/' + SHEET_ID + '/values/' + RANGE + '?key=' + API_KEY;
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    const rows = (data.values || []).slice(1);
-    allRows = rows.map(r => ({
-      codigo: r[0] || '',
-      nombre: r[1] || '',
-      stock:  r[3] !== undefined ? parseInt(r[3], 10) || 0 : 0,
-      estado: (r[5] || '').trim().toUpperCase(),
-    }));
-    updateStats();
-    renderTable();
-    const now = new Date();
-    document.getElementById('last-update').textContent =
-      'Actualizado ' + now.toLocaleTimeString('es-PY', {hour:'2-digit', minute:'2-digit'});
-  } catch (err) {
-    tbody.innerHTML = '<tr class="state-row"><td colspan="4" style="color:var(--red)">Error al cargar datos · ' + err.message + '</td></tr>';
-  } finally {
-    refreshBtn.classList.remove('spinning');
+
+  const { data, error } = await sb
+    .from('medicacion')
+    .select('id, codigo, nombre, presentacion, stock_actual, stock_minimo')
+    .eq('activo', true)
+    .order('codigo', { ascending: true });
+
+  refreshBtn.classList.remove('spinning');
+
+  if (error) {
+    tbody.innerHTML = `<tr class="state-row"><td colspan="4" style="color:var(--red)">Error al cargar datos · ${esc(error.message)}</td></tr>`;
+    return;
   }
+
+  allRows = (data || []).map(r => ({
+    id:      r.id,
+    codigo:  r.codigo || '',
+    nombre:  r.nombre || '',
+    present: r.presentacion || '',
+    stock:   r.stock_actual ?? 0,
+    minimo:  r.stock_minimo ?? 0,
+    estado:  estadoDe(r.stock_actual ?? 0, r.stock_minimo ?? 0),
+  }));
+
+  updateStats();
+  renderTable();
 }
 
+// ── REALTIME ──────────────────────────
+// El bot de Telegram inserta la atencion -> el trigger de Postgres descuenta ->
+// este canal recibe el UPDATE de `medicacion` y la fila cambia sola en pantalla.
+function setLive(estado, texto) {
+  const b = document.getElementById('live-badge');
+  b.className = 'live ' + estado;
+  document.getElementById('live-text').textContent = texto;
+}
+
+function suscribir() {
+  canal = sb
+    .channel('stock-medicacion')
+    .on('postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'medicacion' },
+        payload => aplicarCambio(payload.new))
+    .subscribe(status => {
+      if (status === 'SUBSCRIBED')      setLive('on',  'en vivo');
+      else if (status === 'CLOSED')     setLive('off', 'reconectando…');
+      else if (status === 'CHANNEL_ERROR') setLive('off', 'sin conexión en vivo');
+    });
+
+  // Red de seguridad: si el WebSocket se cae sin avisar, refresca cada 2 min.
+  setInterval(() => { if (appEl.style.display === 'flex') loadData(); }, 120000);
+}
+
+function aplicarCambio(nuevo) {
+  if (!nuevo || nuevo.id == null) return;
+  const fila = allRows.find(r => r.id === nuevo.id);
+  if (!fila) return;
+
+  fila.stock  = nuevo.stock_actual ?? fila.stock;
+  fila.minimo = nuevo.stock_minimo ?? fila.minimo;
+  fila.estado = estadoDe(fila.stock, fila.minimo);
+
+  updateStats();
+  renderTable();
+
+  const tr = document.querySelector(`tr[data-id="${nuevo.id}"]`);
+  if (tr) { tr.classList.add('flash'); setTimeout(() => tr.classList.remove('flash'), 1500); }
+}
+
+// ── FUZZY (acento-insensible, por nombre) ──
 function norm(s) {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 function fuzzy(query, target) {
   const q = norm(query), t = norm(target);
   if (t.includes(q)) return true;
+  // subsecuencia: caracteres de q en orden dentro de t (tolera typos por omisión)
   let i = 0;
   for (let j = 0; j < t.length && i < q.length; j++) {
     if (t[j] === q[i]) i++;
@@ -433,34 +1077,56 @@ function fuzzy(query, target) {
   return i === q.length;
 }
 
+// ── RENDER ────────────────────────────
 function renderTable() {
   const query = document.getElementById('search-input').value.trim();
   const tbody = document.getElementById('table-body');
+
   let rows = allRows;
-  if (filterMode === 'ok')  rows = rows.filter(r => r.estado !== 'AGOTADO');
+  if (filterMode === 'ok')  rows = rows.filter(r => r.estado === 'OK');
+  if (filterMode === 'rep') rows = rows.filter(esReponer);
   if (filterMode === 'ago') rows = rows.filter(r => r.estado === 'AGOTADO');
   if (query) rows = rows.filter(r => fuzzy(query, r.nombre));
+
   document.getElementById('stat-vis').textContent = rows.length;
+
   if (rows.length === 0) {
-    tbody.innerHTML = '<tr class="state-row"><td colspan="4">Sin resultados</td></tr>';
+    tbody.innerHTML = `<tr class="state-row"><td colspan="4">Sin resultados</td></tr>`;
     return;
   }
+
+  const esAdmin = rol === 'admin';
   const fragment = document.createDocumentFragment();
+
   rows.forEach((r, i) => {
     const tr = document.createElement('tr');
-    const agotado = r.estado === 'AGOTADO';
-    if (agotado) tr.classList.add('agotado');
-    tr.style.animationDelay = Math.min(i * 10, 180) + 'ms';
-    const badgeClass = agotado ? 'badge badge-agotado' : 'badge badge-ok';
-    const badgeLabel = agotado ? 'AGOTADO' : 'OK';
-    const stockClass = r.stock === 0 ? 'col-stock zero' : r.stock <= 5 ? 'col-stock low' : 'col-stock';
-    tr.innerHTML =
-      '<td><span class="col-codigo">' + esc(r.codigo) + '</span></td>' +
-      '<td><span class="col-nombre">' + esc(r.nombre) + '</span></td>' +
-      '<td><span class="' + stockClass + '">' + r.stock + '</span></td>' +
-      '<td><span class="' + badgeClass + '"><span class="badge-dot"></span>' + badgeLabel + '</span></td>';
+    const rojo = esRojo(r);
+    if (rojo) tr.classList.add('agotado');
+    if (esAdmin) tr.classList.add('clickable');
+    tr.dataset.id = r.id;
+    tr.dataset.codigo = r.codigo;
+    tr.style.animationDelay = `${Math.min(i * 10, 180)}ms`;
+
+    const badgeClass = {
+      AGOTADO:        'badge badge-agotado',
+      BAJO:           'badge badge-bajo',
+      'POR AGOTARSE': 'badge badge-agotarse',
+      OK:             'badge badge-ok',
+    }[r.estado];
+    const stockClass = rojo ? 'col-stock zero'
+                     : r.estado === 'POR AGOTARSE' ? 'col-stock low'
+                     : 'col-stock';
+    const minTxt = r.minimo > 0 ? ` <span class="col-presentacion" style="display:inline">mín ${r.minimo}</span>` : '';
+
+    tr.innerHTML = `
+      <td><span class="col-codigo">${esc(r.codigo)}</span></td>
+      <td><span class="col-nombre">${esc(r.nombre)}</span>${r.present ? `<span class="col-presentacion">${esc(r.present)}</span>` : ''}</td>
+      <td><span class="${stockClass}">${r.stock}</span>${minTxt}</td>
+      <td><span class="${badgeClass}"><span class="badge-dot"></span>${r.estado}</span></td>
+    `;
     fragment.appendChild(tr);
   });
+
   tbody.innerHTML = '';
   tbody.appendChild(fragment);
 }
@@ -468,17 +1134,20 @@ function renderTable() {
 function updateStats() {
   const total = allRows.length;
   const agos  = allRows.filter(r => r.estado === 'AGOTADO').length;
+  const reps  = allRows.filter(esReponer).length;
   document.getElementById('stat-total').textContent = total;
-  document.getElementById('stat-ok').textContent    = total - agos;
+  document.getElementById('stat-ok').textContent    = total - reps;
+  document.getElementById('stat-rep').textContent   = reps;
   document.getElementById('stat-ago').textContent   = agos;
-  document.getElementById('stat-vis').textContent   = total;
 }
 
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// ── CONTROLS ──────────────────────────
 document.getElementById('search-input').addEventListener('input', renderTable);
+
 document.getElementById('filter-seg').addEventListener('click', e => {
   const btn = e.target.closest('button[data-f]');
   if (!btn) return;
@@ -486,7 +1155,226 @@ document.getElementById('filter-seg').addEventListener('click', e => {
   document.querySelectorAll('#filter-seg button').forEach(b => b.classList.toggle('active', b === btn));
   renderTable();
 });
+
 document.getElementById('refresh-btn').addEventListener('click', loadData);
+
+// ── MODALES ───────────────────────────
+function abrir(id)  { document.getElementById(id).classList.add('open'); }
+function cerrar(id) { document.getElementById(id).classList.remove('open'); }
+
+document.querySelectorAll('[data-close]').forEach(b =>
+  b.addEventListener('click', () => cerrar(b.dataset.close)));
+
+document.querySelectorAll('.modal-backdrop').forEach(bd =>
+  bd.addEventListener('click', e => { if (e.target === bd) cerrar(bd.id); }));
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+});
+
+// ── ENTRADA ───────────────────────────
+const entSearch = document.getElementById('ent-search');
+const entList   = document.getElementById('ent-list');
+const entCant   = document.getElementById('ent-cant');
+const entMsg    = document.getElementById('ent-msg');
+
+document.getElementById('entrada-btn').addEventListener('click', () => {
+  entradaSel = null;
+  entSearch.value = '';
+  entCant.value = '';
+  entMsg.textContent = '';
+  entMsg.className = 'modal-msg';
+  renderPickList();
+  abrir('entrada-modal');
+  entSearch.focus();
+});
+
+function renderPickList() {
+  const q = entSearch.value.trim();
+  let rows = q ? allRows.filter(r => fuzzy(q, r.nombre) || fuzzy(q, r.codigo)) : allRows;
+  rows = rows.slice(0, 40);
+
+  if (rows.length === 0) {
+    entList.innerHTML = `<div class="pick-empty">Sin resultados</div>`;
+    return;
+  }
+
+  entList.innerHTML = rows.map(r => `
+    <div class="pick-item${entradaSel && entradaSel.id === r.id ? ' sel' : ''}" data-id="${r.id}">
+      <div>
+        <div class="pi-name">${esc(r.nombre)}</div>
+        <div class="pi-code">${esc(r.codigo)}${r.present ? ' · ' + esc(r.present) : ''}</div>
+      </div>
+      <div class="pi-stock">${r.stock}</div>
+    </div>`).join('');
+}
+
+entSearch.addEventListener('input', renderPickList);
+
+entList.addEventListener('click', e => {
+  const item = e.target.closest('.pick-item');
+  if (!item) return;
+  entradaSel = allRows.find(r => String(r.id) === item.dataset.id) || null;
+  renderPickList();
+  entCant.focus();
+});
+
+document.getElementById('ent-submit').addEventListener('click', async () => {
+  const btn  = document.getElementById('ent-submit');
+  const cant = parseInt(entCant.value, 10);
+
+  entMsg.className = 'modal-msg err';
+  if (!entradaSel)              { entMsg.textContent = 'Elegí un medicamento de la lista'; return; }
+  if (!Number.isFinite(cant) || cant <= 0) { entMsg.textContent = 'La cantidad debe ser mayor a 0'; return; }
+
+  btn.disabled = true;
+  const { data, error } = await sb.rpc('registrar_entrada_stock', {
+    p_codigo: entradaSel.codigo, p_cantidad: cant
+  });
+  btn.disabled = false;
+
+  if (error)      { entMsg.textContent = error.message; return; }
+  if (!data.ok)   { entMsg.textContent = textoError(data.error); return; }
+
+  entMsg.className = 'modal-msg ok';
+  entMsg.textContent = `+${cant} u. de ${data.nombre} · stock ahora ${data.stock_nuevo}`;
+  entCant.value = '';
+  entradaSel = null;
+  renderPickList();
+});
+
+// ── STOCK MÍNIMO ──────────────────────
+const minSearch = document.getElementById('min-search');
+const minList   = document.getElementById('min-list');
+const minMsg    = document.getElementById('min-msg');
+
+document.getElementById('minimos-btn').addEventListener('click', () => {
+  minSearch.value = '';
+  minMsg.textContent = '';
+  minMsg.className = 'modal-msg';
+  renderMinList();
+  abrir('minimos-modal');
+  minSearch.focus();
+});
+
+function renderMinList() {
+  const q = minSearch.value.trim();
+  let rows = q ? allRows.filter(r => fuzzy(q, r.nombre) || fuzzy(q, r.codigo)) : allRows;
+  rows = rows.slice(0, 60);
+
+  if (rows.length === 0) {
+    minList.innerHTML = `<div class="pick-empty">Sin resultados</div>`;
+    return;
+  }
+
+  minList.innerHTML = rows.map(r => `
+    <div class="min-item">
+      <div class="mi-info">
+        <div class="mi-name">${esc(r.nombre)}</div>
+        <div class="mi-meta">${esc(r.codigo)} · stock ${r.stock} u.</div>
+      </div>
+      <input type="number" min="0" step="1" value="${r.minimo}"
+             data-codigo="${esc(r.codigo)}" data-prev="${r.minimo}" aria-label="Mínimo de ${esc(r.nombre)}">
+    </div>`).join('');
+}
+
+minSearch.addEventListener('input', renderMinList);
+
+// se guarda al salir del campo, solo si el valor cambió
+minList.addEventListener('change', async e => {
+  const input = e.target.closest('input[data-codigo]');
+  if (!input) return;
+
+  const nuevo = parseInt(input.value, 10);
+  const prev  = parseInt(input.dataset.prev, 10);
+
+  minMsg.className = 'modal-msg err';
+  if (!Number.isFinite(nuevo) || nuevo < 0) {
+    input.classList.add('failed');
+    minMsg.textContent = 'El mínimo debe ser 0 o mayor';
+    return;
+  }
+  if (nuevo === prev) return;
+
+  input.disabled = true;
+  const { data, error } = await sb.rpc('definir_stock_minimo', {
+    p_codigo: input.dataset.codigo, p_minimo: nuevo
+  });
+  input.disabled = false;
+
+  if (error || !data.ok) {
+    input.classList.add('failed');
+    input.value = prev;
+    minMsg.textContent = error ? error.message : textoError(data.error);
+    return;
+  }
+
+  // exito: el UPDATE vuelve por Realtime y repinta el semáforo solo
+  input.dataset.prev = nuevo;
+  input.classList.remove('failed');
+  input.classList.add('saved');
+  setTimeout(() => input.classList.remove('saved'), 1200);
+  minMsg.className = 'modal-msg ok';
+  minMsg.textContent = `${data.nombre}: mínimo ${nuevo} u.`;
+});
+
+// ── AJUSTE (solo admin) ───────────────
+const ajuReal   = document.getElementById('aju-real');
+const ajuMotivo = document.getElementById('aju-motivo');
+const ajuMsg    = document.getElementById('aju-msg');
+
+document.getElementById('table-body').addEventListener('click', e => {
+  if (rol !== 'admin') return;
+  const tr = e.target.closest('tr[data-id]');
+  if (!tr) return;
+
+  ajusteSel = allRows.find(r => String(r.id) === tr.dataset.id);
+  if (!ajusteSel) return;
+
+  document.getElementById('aju-sub').textContent =
+    `${ajusteSel.nombre} · ${ajusteSel.codigo} · stock actual ${ajusteSel.stock}`;
+  ajuReal.value = ajusteSel.stock;
+  ajuMotivo.value = '';
+  ajuMsg.textContent = '';
+  ajuMsg.className = 'modal-msg';
+  abrir('ajuste-modal');
+  ajuReal.focus();
+});
+
+document.getElementById('aju-submit').addEventListener('click', async () => {
+  const btn    = document.getElementById('aju-submit');
+  const real   = parseInt(ajuReal.value, 10);
+  const motivo = ajuMotivo.value.trim();
+
+  ajuMsg.className = 'modal-msg err';
+  if (!ajusteSel)                { ajuMsg.textContent = 'No hay medicamento seleccionado'; return; }
+  if (!Number.isFinite(real))    { ajuMsg.textContent = 'Ingresá el stock real contado'; return; }
+  if (motivo.length < 3)         { ajuMsg.textContent = 'El motivo es obligatorio'; return; }
+
+  btn.disabled = true;
+  const { data, error } = await sb.rpc('registrar_ajuste_stock', {
+    p_codigo: ajusteSel.codigo, p_stock_real: real, p_motivo: motivo
+  });
+  btn.disabled = false;
+
+  if (error)    { ajuMsg.textContent = error.message; return; }
+  if (!data.ok) { ajuMsg.textContent = textoError(data.error); return; }
+
+  ajuMsg.className = 'modal-msg ok';
+  ajuMsg.textContent = data.sin_cambio
+    ? 'El stock ya era ese valor, no se registró ningún movimiento'
+    : `${data.nombre}: ${data.stock_anterior} → ${data.stock_nuevo} unidades`;
+});
+
+function textoError(code) {
+  return {
+    sin_permiso:             'Tu usuario no tiene permiso para esta acción',
+    cantidad_invalida:       'La cantidad debe ser mayor a 0',
+    stock_invalido:          'Stock inválido',
+    motivo_requerido:        'El motivo es obligatorio',
+    medicamento_inexistente: 'Ese medicamento no existe o está inactivo',
+  }[code] || code;
+}
 </script>
 </body>
 </html>
